@@ -13,7 +13,7 @@ def signup(request):
             password = form.cleaned_data.get('password1')   #전달받은 비밀번호를 가져옴
             user = authenticate(username=username, password=password)         #세션(인증)발급
             login(request, user)                            #로그인
-            return redirect('board:index')
+            return redirect('blog:index')
     else:
         form = UserForm() #비어있는 새폼
     return render(request, 'common/signup.html', {'form':form})
